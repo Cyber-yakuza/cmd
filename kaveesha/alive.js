@@ -1,16 +1,4 @@
-const { cmd, commands } = require('../command');
-const os = require("os");
-const { runtime } = require('../lib/functions');
-
-cmd({
-    pattern: "alive",
-    alias: ["status", "runtime", "uptime"],
-    desc: "Check uptime and system status",
-    category: "main",
-    react: "👋",
-    filename: __filename
-},
-async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
+uoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
     try {
         // Generate system status message
         const status = `╭━━〔 *𝐒𝐔𝐋𝐀-𝐌𝐃* 〕━━┈⊷
