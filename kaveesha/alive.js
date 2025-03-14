@@ -13,20 +13,30 @@ cmd({
 async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
     try {
         // Generate system status message
-        const status = `╭━━〔 *ᴅᴀʀᴋ ɴᴇʀᴏ* 〕━━┈⊷
-┃◈╭─────────────·๏
-┃◈┃• *👋Hi*: ${pushname}
-┃◈┃• *⏳Uptime*:  ${runtime(process.uptime())} 
-┃◈┃• *📟 Ram*: ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)}MB / ${(os.totalmem() / 1024 / 1024).toFixed(2)}MB
-┃◈┃• *👨‍💻 Owner*: Kaveesha sithum
-┃◈└───────────┈⊷
-╰──────────────┈⊷
+        const status = `
 
-  *𝐒𝐮𝐥𝐚 𝐌𝐃 Multidevice Whatsapp Bot Mack By (Cyber Yakuza).*
+╭─「🥷 ᴅᴀʀᴋ ɴᴇʀᴏ🥷」  Hey🤭👋💗  ${pushname}
 
-  https://whatsapp.com/channel/0029Vb65iOZKwqSNKecV8V07
 
-> 🄿🄾🅆🄴🅁🄳 🅱🆈 ᴅᴀʀᴋ ɴᴇʀᴏ 😈`;
+
+│🥷ʀᴜɴᴛᴛᴍᴇ -   ${runtime(process.uptime())} 
+╰──────────●●►
+
+╭──────────●●►
+│🥷ᴇᴅᴜᴄᴀᴛɪᴏɴᴀʟ ᴄᴏᴍᴍᴀɴᴅ ʟɪꜱᴛ: 
+╰──────────●●►
+
+╭──────────●●►
+│🥷ᴄᴏᴍᴍᴀɴᴅ: ᴛᴀʏᴘ ᴛᴏ ᴍᴜɴᴜ ʟɪꜱᴛ
+│
+╰──────────●●►
+
+
+🥷ɢɪᴛ ʜᴜʙ ʀᴇᴘᴏɢᴛʀ:
+
+ coming soon...‼️
+
+> ⭕ ᴘᴏᴡᴡᴀʀᴅ ʙʏ ᴄʏʙᴇʀ ʏᴀᴋᴜᴢᴀ ᴛᴇᴀᴍ⭕`;
 
         // Send the status message with an image
         await conn.sendMessage(from, { 
