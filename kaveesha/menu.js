@@ -17,7 +17,7 @@ async (conn, mek, m, { from, quoted, pushname, reply }) => {
     try {
         const selectionMessage = `
 ┍┄┄┄┄┄┄┄┄┄┄┄┄┄┄
-      *HEY 💚*  *${pushname}*
+      *HEY 🚩*  *${pushname}*
       
     *⚠️Dark-Nero-Md-Command List⚠️*
 ┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┙
@@ -31,7 +31,8 @@ async (conn, mek, m, { from, quoted, pushname, reply }) => {
   *│8.   🩵RANDOM MENU*
   *│9.   🩵WALLPAPERS MENU*
   *│10. 🩵OTHER MENU*
-  *┕┉┉┉┉┉┉┉┉┉┉┉┉*
+ 
+ *┕┄┄┄┄┄┄┄┄┄┄┄┄┄┄
 
 > ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʏʙᴇʀ ʏᴀᴋᴜᴢᴀ ᴛᴇᴀᴍ❗
 `;
