@@ -15,7 +15,7 @@ cmd({
 async (conn, mek, m, { from, isOwner, quoted, reply }) => {
     if (!isOwner) return reply("❌ You are not the owner!");
     try {
-        let desc = `*╭───╎◈𝗗𝗮𝗿𝗸 𝗻𝗲𝗿𝗼 𝘄𝗮𝘁𝘀𝗮𝗽𝗽 𝗯𝗼𝘁 ◈╎────╮*
+        let desc = ``*╭───╎◈𝗗𝗮𝗿𝗸 𝗻𝗲𝗿𝗼 𝘄𝗮𝘁𝘀𝗮𝗽𝗽 𝗯𝗼𝘁 ◈╎────╮*
 
 > *🥷💀 𝗗𝗮𝗿𝗸 𝗻𝗲𝗿𝗼 𝘄𝗮𝘁𝘀𝗮𝗽𝗽 𝗯𝗼𝘁 𝘀𝗲𝘁𝘁𝗶𝗻𝗴 𝗽𝗮𝗻𝗲𝗹*
 
