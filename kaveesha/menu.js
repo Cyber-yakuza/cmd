@@ -16,26 +16,24 @@ cmd({
 async (conn, mek, m, { from, quoted, pushname, reply }) => {
     try {
         const selectionMessage = `
-╭━━━━∙⋆⋅⋆∙━ ─┉─ • ─┉─⊷
-      *Hi 😈*  *${pushname}*
+┍┄┄┄┄┄┄┄┄┄┄┄┄┄┄
+      *HEY 💚*  *${pushname}*
       
-    *𝐒𝐔𝐋𝐀_𝐌𝐃 Command List*
-╰━━━━∙⋆⋅⋆∙━ ─┉─ • ─┉─⊷
+    *⚠️Dark-Nero-Md-Command List⚠️*
+┄┄┄┄┄┄┄┄┄┄┄┄┄┄┄┙
+  *│1.   🩵DOWNLOAD MENU*
+  *│2.   🩵SEARCH MENU* 
+  *│3.   🩵AI MENU*
+  *│4.   🩵OWNER MENU*
+  *│5.   🩵GROUP MENU*
+  *│6.   🩵INFO MENU*
+  *│7.   🩵CONVERTER MENU*
+  *│8.   🩵RANDOM MENU*
+  *│9.   🩵WALLPAPERS MENU*
+  *│10. 🩵OTHER MENU*
+  *┕┉┉┉┉┉┉┉┉┉┉┉┉*
 
-  *╭────────────●●►*
-  *│1. DOWNLOAD MENU*
-  *│2. SEARCH MENU* 
-  *│3. AI MENU*
-  *│4. OWNER MENU*
-  *│5. GROUP MENU*
-  *│6. INFO MENU*
-  *│7. CONVERTER MENU*
-  *│8. RANDOM MENU*
-  *│9. WALLPAPERS MENU*
-  *│10. OTHER MENU*
-  *╰────────────●●►*
-
-> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈
+> ᴘᴏᴡᴇʀᴇᴅ ʙʏ ᴄʏʙᴇʀ ʏᴀᴋᴜᴢᴀ ᴛᴇᴀᴍ❗
 `;
 
         const sentMsg = await conn.sendMessage(from, {
