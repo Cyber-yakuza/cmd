@@ -38,16 +38,16 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
 
 > ⭕ ᴘᴏᴡᴡᴀʀᴅ ʙʏ ᴄʏʙᴇʀ ʏᴀᴋᴜᴢᴀ ᴛᴇᴀᴍ⭕`;
 
-        // Send the status message with an image
+        
         await conn.sendMessage(from, { 
-            image: { url: `https://files.catbox.moe/kdo0ix.jpeg` },  // Image URL
+            image: { url: `https://files.catbox.moe/kdo0ix.jpeg` },  
             caption: status,
             contextInfo: {
                 mentionedJid: [m.sender],
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '120363385281017920@newsletter',
+                    newsletterJid: '120363414413795183@newsletter',   
                     newsletterName: 'ᴅᴀʀᴋ ɴᴇʀᴏ',
                     serverMessageId: 190
                 }
