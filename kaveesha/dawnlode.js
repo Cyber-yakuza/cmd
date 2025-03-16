@@ -61,57 +61,67 @@ cmd({
        
 // play
 
-cmd({ 
-    pattern: "song", 
-    alias: ["ytmp3", "mp3"], 
-    react: "🎥", 
-    desc: "Download Youtube song", 
-    category: "main", 
-    use: '.song < Yt url or Name >', 
-    filename: __filename 
-}, async (conn, mek, m, { from, prefix, quoted, q, reply }) => { 
-    try { 
+cmd({
+    pattern: "song",
+    alias: ["ytmp3", "mp3"],
+    react: "🎥",
+    desc: "Download YouTube song",
+    category: "main",
+    use: '.song < Yt url or Name >',
+    filename: __filename
+}, async (conn, mek, m, { from, prefix, quoted, q, reply }) => {
+    try {
         if (!q) return await reply("Please provide a YouTube URL or song name.");
         
         const yt = await ytsearch(q);
         if (yt.results.length < 1) return reply("No results found!");
-        
-        let yts = yt.results[0];  
+
+        let yts = yt.results[0];
         let apiUrl = `https://api.vreden.my.id/api/ytplaymp3?query=${encodeURIComponent(yts.url)}`;
-        
-        let response = await fetch(apiUrl);
-        let data = await response.json();
-        
-        if (data.status !== 200 || !data.success || !data.result.download_url) {
-            return reply("Failed to fetch the video. Please try again later.");
+
+        try {
+            let response = await fetch(apiUrl);
+            let data = await response.json();
+
+            // Check if API response is successful
+            if (data.status !== 200 || !data.success || !data.result.download_url) {
+                return reply("Failed to fetch the video. Please try again later.");
+            }
+
+            let ytmsg = `╭━━━〔 *𝐒𝐔𝐋𝐀-𝐌𝐃* 〕━━━┈⊷
+                         ┇๏ *Title* -  ${yts.title} 
+                         ┇๏ *Duration* - ${yts.timestamp} 
+                         ┇๏ *Views* -  ${yts.views} 
+                         ┇๏ *Author* -  ${yts.author.name} 
+                         ┇๏ *Link* -  ${yts.url} 
+                         ╰────────────────┈⊷
+                         > 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈`;
+
+            // Send video details
+            await conn.sendMessage(from, { 
+                image: { url: data.result.thumbnail || '' }, 
+                caption: ytmsg 
+            }, { quoted: mek });
+
+            // Send video file
+            await conn.sendMessage(from, { 
+                video: { url: data.result.download_url }, 
+                mimetype: "audio/mpeg" 
+            }, { quoted: mek });
+
+            // Send document file (optional)
+            await conn.sendMessage(from, { 
+                document: { url: data.result.download_url },
+                mimetype: "audio/mpeg", 
+                fileName: `${data.result.title}.mp3`,
+                caption: `> *${yts.title}*\n> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈`
+            }, { quoted: mek });
+        } catch (error) {
+            console.log("Error fetching MP3:", error);
+            reply("An error occurred while fetching the MP3. Please try again.");
         }
-        
-        let ytmsg = `╭━━━〔 > 🥷𝗗𝗔𝗥𝗞 𝗡𝗘𝗥𝗢 〕━━━┈⊷
-┇๏ *Title* -  ${yts.title}
-┇๏ *Duration* - ${yts.timestamp}
-┇๏ *Views* -  ${yts.views}
-┇๏ *Author* -  ${yts.author.name}
-┇๏ *Link* -  ${yts.url}
-╰────────────────┈⊷
-
-> 🥷𝗗𝗔𝗥𝗞 𝗡𝗘𝗥𝗢⚠️`;
-
-        // Send video details
-        await conn.sendMessage(from, { image: { url: data.result.thumbnail || '' }, caption: ytmsg }, { quoted: mek });
-        
-        // Send video file
-        await conn.sendMessage(from, { video: { url: data.result.download_url }, mimetype: "audio/mpeg" }, { quoted: mek });
-        
-        // Send document file (optional)
-        await conn.sendMessage(from, { 
-            document: { url: data.result.download_url }, 
-            mimetype: "audio/mpeg", 
-            fileName: `${data.result.title}.mp3`, 
-            caption: `> *${yts.title}*\n> 🥷𝗗𝗔𝗥𝗞 𝗡𝗘𝗥𝗢⚠️`
-        }, { quoted: mek });
-
     } catch (e) {
-        console.log(e);
+        console.log("Error in command:", e);
         reply("An error occurred. Please try again later.");
     }
-});  
+});
