@@ -92,12 +92,7 @@ cmd({
 
             console.log("API Response:", data); // Log the full API response
 
-            // Step 3: Check if the API response is valid
-            if (data.status !== 200 || !data.success || !data.result || !data.result.download_url) {
-                console.error("Failed to fetch the video. Response:", data);
-                return reply("Failed to fetch the video. Please try again later.");
-            }
-
+    
             // Step 4: Create the message with video details
             let ytmsg = `╭━━━〔 *𝐒𝐔𝐋𝐀-𝐌𝐃* 〕━━━┈⊷
                          ┇๏ *Title* -  ${apiUrl.title} 
@@ -110,7 +105,7 @@ cmd({
 
             // Step 5: Send the video thumbnail and details
             await conn.sendMessage(from, { 
-                image: { url: data.result.thumbnail || '' }, 
+                image: { url: apiUrl.result.thumbnail || '' }, 
                 caption: ytmsg 
             }, { quoted: mek });
 
@@ -118,7 +113,7 @@ cmd({
             await conn.sendMessage(
                 from,
                 {
-                    audio: { url: data.result.download_url },
+                    audio: { url: apiUrl.result.download_url },
                     mimetype: "audio/mpeg",
                     fileName: `${apiUrl.title}.mp3`,
                     caption: `Here's your requested MP3: *${apiUrl.title}*`
