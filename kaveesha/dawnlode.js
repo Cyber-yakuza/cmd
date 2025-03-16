@@ -110,18 +110,18 @@ cmd({
             }, { quoted: mek });
 
             // Send video file
-            await conn.sendMessage(from, { 
-                video: { url: data.result.download_url }, 
-                mimetype: "audio/mpeg" 
-            }, { quoted: mek });
+         
 
             // Send document file (optional)
-            await conn.sendMessage(from, { 
-                document: { url: data.result.download_url },
-                mimetype: "audio/mpeg", 
+            await conn.sendMessage(
+            from,
+            {
+                audio: { url: data.result.download_url },
+                mimetype: "audio/mpeg",
                 fileName: `${data.result.title}.mp3`,
-                caption: `> *${yts.title}*\n> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈`
-            }, { quoted: mek });
+            },
+            { quoted: m }
+        );
 
         } catch (error) {
             console.log("Error fetching MP3:", error);
