@@ -115,7 +115,7 @@ cmd({
                 {
                     audio: { url: apiUrl.result.download_url },
                     mimetype: "audio/mpeg",
-                    fileName: `${apiUrl.title}.mp3`,
+                    fileName: `nero.mp3`,
                     caption: `Here's your requested MP3: *${apiUrl.title}*`
                 },
                 { quoted: m }
