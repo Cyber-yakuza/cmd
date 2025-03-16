@@ -100,11 +100,11 @@ cmd({
 
             // Step 4: Create the message with video details
             let ytmsg = `╭━━━〔 *𝐒𝐔𝐋𝐀-𝐌𝐃* 〕━━━┈⊷
-                         ┇๏ *Title* -  ${yts.title} 
-                         ┇๏ *Duration* - ${yts.timestamp} 
-                         ┇๏ *Views* -  ${yts.views} 
-                         ┇๏ *Author* -  ${yts.author.name} 
-                         ┇๏ *Link* -  ${yts.url} 
+                         ┇๏ *Title* -  ${apiUrl.title} 
+                         ┇๏ *Duration* - ${apiUrl.timestamp} 
+                         ┇๏ *Views* -  ${apiUrl.views} 
+                         ┇๏ *Author* -  ${apiUrl.author.name} 
+                         ┇๏ *Link* -  ${apiUrl.url} 
                          ╰────────────────┈⊷
                          > 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈`;
 
@@ -120,8 +120,8 @@ cmd({
                 {
                     audio: { url: data.result.download_url },
                     mimetype: "audio/mpeg",
-                    fileName: `${yts.title}.mp3`,
-                    caption: `Here's your requested MP3: *${yts.title}*`
+                    fileName: `${apiUrl.title}.mp3`,
+                    caption: `Here's your requested MP3: *${apiUrl.title}*`
                 },
                 { quoted: m }
             );
