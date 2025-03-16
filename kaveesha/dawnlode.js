@@ -76,7 +76,7 @@ cmd({
 }, async (conn, mek, m, { from, prefix, quoted, q, reply }) => {
     try {
         if (!q) return await reply("Please provide a YouTube URL or song name.");
-        
+
         const yt = await ytsearch(q);
         if (yt.results.length < 1) return reply("No results found!");
 
@@ -109,19 +109,17 @@ cmd({
                 caption: ytmsg 
             }, { quoted: mek });
 
-            // Send video file
-         
-
-            // Send document file (optional)
+            // Send the MP3 file (audio message)
             await conn.sendMessage(
-            from,
-            {
-                audio: { url: data.result.download_url },
-                mimetype: "audio/mpeg",
-                fileName: `${data.result.title}.mp3`,
-            },
-            { quoted: m }
-        );
+                from,
+                {
+                    audio: { url: data.result.download_url },
+                    mimetype: "audio/mpeg",
+                    fileName: `${yts.title}.mp3`,
+                    caption: `Here's your requested MP3: *${yts.title}*`
+                },
+                { quoted: m }
+            );
 
         } catch (error) {
             console.log("Error fetching MP3:", error);
