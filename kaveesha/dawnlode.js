@@ -93,7 +93,8 @@ cmd({
             console.log("API Response:", data); // Log the full API response
 
             // Step 3: Check if the API response is valid
-            if (data.status !== 200 || !data.success || !data.result.download_url) {
+            if (data.status !== 200 || !data.success || !data.result || !data.result.download_url) {
+                console.error("Failed to fetch the video. Response:", data);
                 return reply("Failed to fetch the video. Please try again later.");
             }
 
