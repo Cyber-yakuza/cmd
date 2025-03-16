@@ -61,7 +61,6 @@ cmd({
 });  
        
 // play
-
 cmd({
     pattern: "song",
     alias: ["ytmp3", "mp3"],
@@ -79,10 +78,13 @@ cmd({
 
         let yts = yt.results[0];
         let apiUrl = `https://api.vreden.my.id/api/ytplaymp3?query=${encodeURIComponent(yts.url)}`;
+        console.log("API Request URL:", apiUrl); // Log the API URL to check the query
 
         try {
             let response = await fetch(apiUrl);
             let data = await response.json();
+
+            console.log("API Response:", data); // Log the full API response
 
             // Check if API response is successful
             if (data.status !== 200 || !data.success || !data.result.download_url) {
@@ -117,6 +119,7 @@ cmd({
                 fileName: `${data.result.title}.mp3`,
                 caption: `> *${yts.title}*\n> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈`
             }, { quoted: mek });
+
         } catch (error) {
             console.log("Error fetching MP3:", error);
             reply("An error occurred while fetching the MP3. Please try again.");
