@@ -61,6 +61,10 @@ cmd({
 });  
        
 // play
+// Only require ytsearch once
+const ytsearch = require('yt-search');
+
+// Your bot's logic goes here
 cmd({
     pattern: "song",
     alias: ["ytmp3", "mp3"],
@@ -86,7 +90,6 @@ cmd({
 
             console.log("API Response:", data); // Log the full API response
 
-            // Check if API response is successful
             if (data.status !== 200 || !data.success || !data.result.download_url) {
                 return reply("Failed to fetch the video. Please try again later.");
             }
