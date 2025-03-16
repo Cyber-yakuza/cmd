@@ -77,6 +77,7 @@ cmd({
     try {
         if (!q) return await reply("Please provide a YouTube URL or song name.");
 
+        // Step 1: Search YouTube for the song
         const yt = await ytsearch(q);
         if (yt.results.length < 1) return reply("No results found!");
 
@@ -84,16 +85,19 @@ cmd({
         let apiUrl = `https://api.vreden.my.id/api/ytplaymp3?query=${encodeURIComponent(yts.url)}`;
         console.log("API Request URL:", apiUrl); // Log the API URL to check the query
 
+        // Step 2: Fetch MP3 from the API
         try {
             let response = await fetch(apiUrl);
             let data = await response.json();
 
             console.log("API Response:", data); // Log the full API response
 
+            // Step 3: Check if the API response is valid
             if (data.status !== 200 || !data.success || !data.result.download_url) {
                 return reply("Failed to fetch the video. Please try again later.");
             }
 
+            // Step 4: Create the message with video details
             let ytmsg = `╭━━━〔 *𝐒𝐔𝐋𝐀-𝐌𝐃* 〕━━━┈⊷
                          ┇๏ *Title* -  ${yts.title} 
                          ┇๏ *Duration* - ${yts.timestamp} 
@@ -103,13 +107,13 @@ cmd({
                          ╰────────────────┈⊷
                          > 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈`;
 
-            // Send video details
+            // Step 5: Send the video thumbnail and details
             await conn.sendMessage(from, { 
                 image: { url: data.result.thumbnail || '' }, 
                 caption: ytmsg 
             }, { quoted: mek });
 
-            // Send the MP3 file (audio message)
+            // Step 6: Send the MP3 file as audio
             await conn.sendMessage(
                 from,
                 {
@@ -120,6 +124,8 @@ cmd({
                 },
                 { quoted: m }
             );
+
+            console.log("MP3 sent successfully.");
 
         } catch (error) {
             console.log("Error fetching MP3:", error);
