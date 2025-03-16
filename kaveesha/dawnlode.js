@@ -1,7 +1,7 @@
 const config = require('../config');
 const { cmd } = require('../command');
 const { ytsearch, ytmp3, ytmp4 } = require('@dark-yasiya/yt-dl.js'); 
-const ytsearch = require('yt-search');
+
 
 // video
 
@@ -62,7 +62,7 @@ cmd({
        
 // play
 // Only require ytsearch once
-const ytsearch = require('yt-search');
+
 
 // Your bot's logic goes here
 cmd({
