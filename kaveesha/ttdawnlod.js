@@ -73,7 +73,7 @@ cmd({
                 if (userResponse === "1") {
                     await conn.sendMessage(chatID, {
                         video: { url: videoData.video },
-                        caption: "> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈"
+                        caption: "ɢᴇɴᴇʀᴀᴛᴇᴅ ʙʏ ᴅᴀʀᴋ ɴᴇʀᴏ ᴍᴅ🏁"
                     }, { quoted: receivedMessage });
                 } else if (userResponse === "2") {
                     await conn.sendMessage(chatID, {
@@ -304,14 +304,14 @@ cmd({
     const app = data.datalist.list[0];
     const appSize = (app.size / 1048576).toFixed(2); // Convert bytes to MB
 
-    const caption = `╭━━━〔 *𝐒𝐔𝐋𝐀-𝐌𝐃 APK Downloader* 〕━━━┈⊷
+    const caption = `╭━━━〔 *> 🥷𝗗𝗔𝗥𝗞 𝗡𝗘𝗥𝗢⚠️* 〕━━━┈⊷
 ┃ 📦 *Name:* ${app.name}
 ┃ 🏋 *Size:* ${appSize} MB
 ┃ 📦 *Package:* ${app.package}
 ┃ 📅 *Updated On:* ${app.updated}
 ┃ 👨‍💻 *Developer:* ${app.developer.name}
 ╰━━━━━━━━━━━━━━━┈⊷
-> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈`;
+ɢᴇɴᴇʀᴀᴛᴇᴅ ʙʏ ᴅᴀʀᴋ ɴᴇʀᴏ ᴍᴅ🏁`;
 
     await conn.sendMessage(from, { react: { text: "⬆️", key: m.key } });
 
@@ -362,7 +362,7 @@ cmd({
         document: { url: downloadUrl },
         mimetype: response.data.result.mimetype,
         fileName: response.data.result.fileName,
-        caption: "> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈"
+        caption: "ɢᴇɴᴇʀᴀᴛᴇᴅ ʙʏ ᴅᴀʀᴋ ɴᴇʀᴏ ᴍᴅ🏁"
       }, { quoted: m });
 
       await conn.sendMessage(from, { react: { text: "✅", key: m.key } });
@@ -405,7 +405,7 @@ cmd({
 
     await conn.sendMessage(from, {
       video: { url: videoData.url },
-      caption: `📥 *Downloaded in ${videoData.quality} Quality*\n\n> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈`
+      caption: `📥 *Downloaded in ${videoData.quality} Quality*\n\nɢᴇɴᴇʀᴀᴛᴇᴅ ʙʏ ᴅᴀʀᴋ ɴᴇʀᴏ ᴍᴅ🏁`
     }, { quoted: m });
 
   } catch (error) {
@@ -458,7 +458,7 @@ cmd({
                 from,
                 {
                     image: { url: image.src },
-                    caption: `*Results For:* ${query}\n\n> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈`
+                    caption: `*Results For:* ${query}\n\nɢᴇɴᴇʀᴀᴛᴇᴅ ʙʏ ᴅᴀʀᴋ ɴᴇʀᴏ ᴍᴅ🏁`
                 },
                 { quoted: mek }
             );
@@ -672,7 +672,7 @@ cmd({
         const videoUrl = media.find(item => item.type.includes('720p'))?.download_url || media[0].download_url;
 
         // Prepare the new message with the updated caption
-        const desc = `╭━━━〔 *𝐒𝐔𝐋𝐀-𝐌𝐃* 〕━━━┈⊷
+        const desc = `╭━━━〔 > 🥷𝗗𝗔𝗥𝗞 𝗡𝗘𝗥𝗢⚠️ 〕━━━┈⊷
 ┃▸╭───────────
 ┃▸┃๏ *PINS DOWNLOADER*
 ┃▸└───────────···๏
@@ -681,7 +681,7 @@ cmd({
 ┇๏ *Title* - ${title}
 ┇๏ *Media Type* - ${media[0].type}
 ╰━━❑━⪼
-> 🄿🄾🅆🄴🅁🄳 🅱🆈 𝐒𝐔𝐋𝐀_𝐌𝐃 😈`;
+ɢᴇɴᴇʀᴀᴛᴇᴅ ʙʏ ᴅᴀʀᴋ ɴᴇʀᴏ ᴍᴅ🏁`;
 
         // Send the media (video or image) to the user
         if (videoUrl) {
