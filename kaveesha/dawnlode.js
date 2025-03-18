@@ -4,9 +4,8 @@ const fs = require('fs');
 const FileType = require('file-type');
 const { ytsearch, ytmp3, ytmp4 } = require('@dark-yasiya/yt-dl.js'); 
 
-
-const {
-    default:
+const { 
+    makeWASocket,
     getAggregateVotesInPollMessage, 
     useMultiFileAuthState,
     DisconnectReason,
@@ -22,8 +21,9 @@ const {
     generateForwardMessageContent,
     generateWAMessageFromContent,
     prepareWAMessageMedia,
-    proto
+    proto 
 } = require('@whiskeysockets/baileys');
+
 // video
 
 cmd({ 
