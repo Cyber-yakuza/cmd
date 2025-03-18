@@ -1,8 +1,9 @@
-const { cmd, commands } = require('../lib/command');
+const { cmd, commands } = require('../config');
+const { cmd } = require('../command');
 const Jimp = require("jimp");
 const fs = require('fs');
 const FileType = require('file-type');
-const config = require('../settings');
+
 const {
     default: makeWASocket,
     getAggregateVotesInPollMessage, 
