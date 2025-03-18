@@ -2,27 +2,8 @@ const config = require('../config');
 const { cmd } = require('../command');
 const fs = require('fs');
 const FileType = require('file-type');
+const downloadContentFromMessage = require('@whiskeysockets/baileys');
 const { ytsearch, ytmp3, ytmp4 } = require('@dark-yasiya/yt-dl.js'); 
-
-const { 
-    makeWASocket,
-    getAggregateVotesInPollMessage, 
-    useMultiFileAuthState,
-    DisconnectReason,
-    getDevice,
-    fetchLatestBaileysVersion,
-    jidNormalizedUser,
-    getContentType,
-    Browsers,
-    delay,
-    makeInMemoryStore,
-    makeCacheableSignalKeyStore,
-    downloadContentFromMessage,
-    generateForwardMessageContent,
-    generateWAMessageFromContent,
-    prepareWAMessageMedia,
-    proto 
-} = require('@whiskeysockets/baileys');
 
 // video
 
