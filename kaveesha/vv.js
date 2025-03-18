@@ -1,4 +1,4 @@
-const { cmd, commands } = require('../config');
+const config = require('../config');
 const { cmd } = require('../command');
 const Jimp = require("jimp");
 const fs = require('fs');
