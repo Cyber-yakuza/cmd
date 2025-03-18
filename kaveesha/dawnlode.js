@@ -6,7 +6,7 @@ const { ytsearch, ytmp3, ytmp4 } = require('@dark-yasiya/yt-dl.js');
 
 
 const {
-    default: makeWASocket,
+    default:
     getAggregateVotesInPollMessage, 
     useMultiFileAuthState,
     DisconnectReason,
